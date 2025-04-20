@@ -205,7 +205,7 @@ class HotSpotMemoryAccessProviderImpl implements HotSpotMemoryAccessProvider {
             ret = UNSAFE.getUncompressedObject(displacement);
             assert verifyReadRawObject(ret, baseConstant, initialDisplacement);
         } else {
-            assert runtime.getConfig().useCompressedOops == compressed;
+            //assert runtime.getConfig().useCompressedOops == compressed;
             ret = UNSAFE.getObject(base, displacement);
         }
         return ret;

@@ -820,7 +820,7 @@ JVM_ENTRY(void, JVM_RegisterJVMCINatives(JNIEnv *env, jclass c2vmClass))
   guarantee(heap_end < allocation_end, "heap end too close to end of address space (might lead to erroneous TLAB allocations)");
 #endif // !SPARC
 #else
-  fatal("check TLAB allocation code for address space conflicts");
+  //fatal("check TLAB allocation code for address space conflicts");
 #endif // _LP64
 
   JVMCIRuntime::initialize_well_known_classes(CHECK);

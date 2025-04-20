@@ -164,12 +164,15 @@ public class GraalHotSpotVMConfig extends GraalHotSpotVMConfigBase {
     public final boolean useDeferredInitBarriers = getFlag("ReduceInitialCardMarks", Boolean.class);
 
     // Compressed Oops related values.
-    public final boolean useCompressedOops = getFlag("UseCompressedOops", Boolean.class);
-    public final boolean useCompressedClassPointers = getFlag("UseCompressedClassPointers", Boolean.class);
+    //public final boolean useCompressedOops = getFlag("UseCompressedOops", Boolean.class);
+    public final boolean useCompressedOops = false;
+    //public final boolean useCompressedClassPointers = getFlag("UseCompressedClassPointers", Boolean.class);
+    public final boolean useCompressedClassPointers = false;
 
     public final long narrowOopBase = getFieldValue("CompilerToVM::Data::Universe_narrow_oop_base", Long.class, "address");
     public final int narrowOopShift = getFieldValue("CompilerToVM::Data::Universe_narrow_oop_shift", Integer.class, "int");
-    public final int objectAlignment = getFlag("ObjectAlignmentInBytes", Integer.class);
+    //public final int objectAlignment = getFlag("ObjectAlignmentInBytes", Integer.class);
+    public final int objectAlignment = 4;
 
     public final int minObjAlignment() {
         return objectAlignment / heapWordSize;

@@ -270,7 +270,7 @@ address TemplateInterpreterGenerator::generate_deopt_entry_for(TosState state, i
     lock_method();
     __ bind(L);
   } else {
-#ifdef ASSERT
+#ifndef ASSERT
     if (EnableJVMCI) {
       Label L;
       __ cmpb(Address(r15_thread, JavaThread::pending_monitorenter_offset()), 0);

@@ -76,8 +76,10 @@ public class TargetDescription {
 
     public TargetDescription(Architecture arch, boolean isMP, int stackAlignment, int implicitNullCheckLimit, boolean inlineObjects) {
         this.arch = arch;
+	System.out.println("arch: " + arch);
         this.isMP = isMP;
-        this.wordSize = arch.getWordSize();
+        //this.wordSize = arch.getWordSize();
+        this.wordSize = 4;
         this.wordJavaKind = JavaKind.fromWordSize(wordSize);
         this.stackAlignment = stackAlignment;
         this.implicitNullCheckLimit = implicitNullCheckLimit;

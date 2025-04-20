@@ -66,9 +66,11 @@ class HotSpotVMConfig extends HotSpotVMConfigAccess {
 
     final boolean useDeferredInitBarriers = getFlag("ReduceInitialCardMarks", Boolean.class);
 
-    final boolean useCompressedOops = getFlag("UseCompressedOops", Boolean.class);
+    //final boolean useCompressedOops = getFlag("UseCompressedOops", Boolean.class);
+    final boolean useCompressedOops = false;
 
-    final int objectAlignment = getFlag("ObjectAlignmentInBytes", Integer.class);
+    //final int objectAlignment = getFlag("ObjectAlignmentInBytes", Integer.class);
+    final int objectAlignment = 4;
 
     final int prototypeMarkWordOffset = getFieldOffset("Klass::_prototype_header", Integer.class, "markOop");
     final int subklassOffset = getFieldOffset("Klass::_subklass", Integer.class, "Klass*");

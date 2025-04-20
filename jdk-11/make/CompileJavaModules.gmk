@@ -433,6 +433,7 @@ jdk.internal.vm.ci_ADD_JAVAC_FLAGS += -parameters -Xlint:-exports -XDstringConca
 jdk.internal.vm.compiler_ADD_JAVAC_FLAGS += -parameters -XDstringConcat=inline \
     --add-exports jdk.internal.vm.ci/jdk.vm.ci.aarch64=jdk.internal.vm.compiler \
     --add-exports jdk.internal.vm.ci/jdk.vm.ci.amd64=jdk.internal.vm.compiler \
+    --add-exports jdk.internal.vm.ci/jdk.vm.ci.i386=jdk.internal.vm.compiler \
     --add-exports jdk.internal.vm.ci/jdk.vm.ci.code=jdk.internal.vm.compiler \
     --add-exports jdk.internal.vm.ci/jdk.vm.ci.code.site=jdk.internal.vm.compiler \
     --add-exports jdk.internal.vm.ci/jdk.vm.ci.code.stack=jdk.internal.vm.compiler \

@@ -187,6 +187,10 @@ objArrayHandle CompilerToVM::initialize_intrinsics(TRAPS) {
   return vmIntrinsics;
 }
 
+  //do_intx_flag(ObjectAlignmentInBytes)                                     \
+  //do_bool_flag(UseCompressedClassPointers)                                 \
+  //do_bool_flag(UseCompressedOops)                                          \
+
 /**
  * The set of VM flags known to be used.
  */
@@ -219,7 +223,6 @@ objArrayHandle CompilerToVM::initialize_intrinsics(TRAPS) {
   do_bool_flag(JVMCIPrintProperties)                                       \
   do_bool_flag(JVMCIUseFastLocking)                                        \
   do_intx_flag(MethodProfileWidth)                                         \
-  do_intx_flag(ObjectAlignmentInBytes)                                     \
   do_bool_flag(PrintInlining)                                              \
   do_bool_flag(ReduceInitialCardMarks)                                     \
   do_bool_flag(RestrictContended)                                          \
@@ -232,8 +235,6 @@ objArrayHandle CompilerToVM::initialize_intrinsics(TRAPS) {
   X86_ONLY(do_intx_flag(UseAVX))                                           \
   do_bool_flag(UseBiasedLocking)                                           \
   do_bool_flag(UseCRC32Intrinsics)                                         \
-  do_bool_flag(UseCompressedClassPointers)                                 \
-  do_bool_flag(UseCompressedOops)                                          \
   do_bool_flag(UseConcMarkSweepGC)                                         \
   X86_ONLY(do_bool_flag(UseCountLeadingZerosInstruction))                  \
   X86_ONLY(do_bool_flag(UseCountTrailingZerosInstruction))                 \

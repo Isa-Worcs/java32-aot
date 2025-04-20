@@ -40,23 +40,27 @@ PROC_SRC_SUBDIRS := \
     org.graalvm.compiler.core \
     org.graalvm.compiler.core.aarch64 \
     org.graalvm.compiler.core.amd64 \
+    org.graalvm.compiler.core.i386 \
     org.graalvm.compiler.core.common \
     org.graalvm.compiler.core.sparc \
     org.graalvm.compiler.debug \
     org.graalvm.compiler.hotspot \
     org.graalvm.compiler.hotspot.aarch64 \
     org.graalvm.compiler.hotspot.amd64 \
+    org.graalvm.compiler.hotspot.i386 \
     org.graalvm.compiler.hotspot.sparc \
     org.graalvm.compiler.graph \
     org.graalvm.compiler.java \
     org.graalvm.compiler.lir \
     org.graalvm.compiler.lir.amd64 \
+    org.graalvm.compiler.lir.i386 \
     org.graalvm.compiler.loop \
     org.graalvm.compiler.loop.phases \
     org.graalvm.compiler.nodes \
     org.graalvm.compiler.replacements \
     org.graalvm.compiler.replacements.aarch64 \
     org.graalvm.compiler.replacements.amd64 \
+    org.graalvm.compiler.replacements.i386 \
     org.graalvm.compiler.phases \
     org.graalvm.compiler.phases.common \
     org.graalvm.compiler.printer \
@@ -83,6 +87,7 @@ ADD_EXPORTS := \
     --add-modules jdk.internal.vm.ci \
     --add-exports jdk.internal.vm.ci/jdk.vm.ci.aarch64=ALL-UNNAMED \
     --add-exports jdk.internal.vm.ci/jdk.vm.ci.amd64=ALL-UNNAMED \
+    --add-exports jdk.internal.vm.ci/jdk.vm.ci.i386=ALL-UNNAMED \
     --add-exports jdk.internal.vm.ci/jdk.vm.ci.code=ALL-UNNAMED \
     --add-exports jdk.internal.vm.ci/jdk.vm.ci.code.site=ALL-UNNAMED \
     --add-exports jdk.internal.vm.ci/jdk.vm.ci.code.stack=ALL-UNNAMED \
@@ -90,6 +95,7 @@ ADD_EXPORTS := \
     --add-exports jdk.internal.vm.ci/jdk.vm.ci.hotspot=ALL-UNNAMED \
     --add-exports jdk.internal.vm.ci/jdk.vm.ci.hotspot.aarch64=ALL-UNNAMED \
     --add-exports jdk.internal.vm.ci/jdk.vm.ci.hotspot.amd64=ALL-UNNAMED \
+    --add-exports jdk.internal.vm.ci/jdk.vm.ci.hotspot.i386=ALL-UNNAMED \
     --add-exports jdk.internal.vm.ci/jdk.vm.ci.hotspot.events=ALL-UNNAMED \
     --add-exports jdk.internal.vm.ci/jdk.vm.ci.hotspot.sparc=ALL-UNNAMED \
     --add-exports jdk.internal.vm.ci/jdk.vm.ci.hotspotvmconfig=ALL-UNNAMED \
