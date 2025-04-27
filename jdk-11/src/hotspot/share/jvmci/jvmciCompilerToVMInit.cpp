@@ -318,7 +318,7 @@ jobjectArray readConfiguration0(JNIEnv *env, TRAPS) {
     VMField::set_name(vmFieldObj, name());
     VMField::set_type(vmFieldObj, type());
     VMField::set_offset(vmFieldObj, vmField.offset);
-    VMField::set_address(vmFieldObj, (jlong) vmField.address);
+    VMField::set_address(vmFieldObj, (jlong) (uint32_t) vmField.address);
     if (vmField.isStatic && vmField.typeString != NULL) {
       if (strcmp(vmField.typeString, "bool") == 0) {
         BOXED_BOOLEAN(box, *(jbyte*) vmField.address);
@@ -337,7 +337,10 @@ jobjectArray readConfiguration0(JNIEnv *env, TRAPS) {
                  strcmp(vmField.typeString, "size_t") == 0 ||
                  // All foo* types are addresses.
                  vmField.typeString[strlen(vmField.typeString) - 1] == '*') {
-        BOXED_LONG(box, *((address*) vmField.address));
+	jlong ul = (jlong) (uint32_t) *((address*) vmField.address);
+        BOXED_LONG(box, ul);
+	//BOXED_ADDR(box, *((address*) vmField.address));
+	//printf ("vmField --> 0x%llx\n", ul);
         VMField::set_value(vmFieldObj, box);
       } else {
         JVMCI_ERROR_NULL("VM field %s has unsupported type %s", name_buf, vmField.typeString);
@@ -372,7 +375,8 @@ jobjectArray readConfiguration0(JNIEnv *env, TRAPS) {
   for (int i = 0; i < len ; i++) {
     VMAddressEntry a = JVMCIVMStructs::localHotSpotVMAddresses[i];
     CSTRING_TO_JSTRING(name, a.name);
-    BOXED_LONG(value, a.value);
+    jlong ul = (jlong) (uint32_t) a.value;
+    BOXED_LONG(value, ul);
     vmAddresses->obj_at_put(i * 2, name());
     vmAddresses->obj_at_put(i * 2 + 1, value);
   }

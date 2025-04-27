@@ -70,7 +70,7 @@ class HotSpotVMConfig extends HotSpotVMConfigAccess {
     final boolean useCompressedOops = false;
 
     //final int objectAlignment = getFlag("ObjectAlignmentInBytes", Integer.class);
-    final int objectAlignment = 4;
+    final int objectAlignment = 8;
 
     final int prototypeMarkWordOffset = getFieldOffset("Klass::_prototype_header", Integer.class, "markOop");
     final int subklassOffset = getFieldOffset("Klass::_subklass", Integer.class, "Klass*");
@@ -281,7 +281,7 @@ class HotSpotVMConfig extends HotSpotVMConfigAccess {
     /**
      * The DataLayout header size is the same as the cell size.
      */
-    final int dataLayoutHeaderSize = getConstant("DataLayout::cell_size", Integer.class);
+    final int dataLayoutHeaderSize = 2 * getConstant("DataLayout::cell_size", Integer.class);
     final int dataLayoutTagOffset = getFieldOffset("DataLayout::_header._struct._tag", Integer.class, "u1");
     final int dataLayoutFlagsOffset = getFieldOffset("DataLayout::_header._struct._flags", Integer.class, "u1");
     final int dataLayoutBCIOffset = getFieldOffset("DataLayout::_header._struct._bci", Integer.class, "u2");

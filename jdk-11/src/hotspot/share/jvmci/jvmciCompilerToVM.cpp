@@ -83,7 +83,7 @@ oop CompilerToVM::get_jvmci_method(const methodHandle& method, TRAPS) {
   if (method() != NULL) {
     JavaValue result(T_OBJECT);
     JavaCallArguments args;
-    args.push_long((jlong) (address) method());
+    args.push_long((jlong) (uint32_t) (address) method());
     JavaCalls::call_static(&result, SystemDictionary::HotSpotResolvedJavaMethodImpl_klass(), vmSymbols::fromMetaspace_name(), vmSymbols::method_fromMetaspace_signature(), &args, CHECK_NULL);
 
     return (oop)result.get_jobject();
@@ -305,7 +305,7 @@ C2V_VMENTRY(jobject, getConstantPool, (JNIEnv *, jobject, jobject object_handle)
   assert(!cp.is_null(), "npe");
   JavaValue method_result(T_OBJECT);
   JavaCallArguments args;
-  args.push_long((jlong) (address) cp());
+  args.push_long((jlong) (uint32_t) (address) cp());
   JavaCalls::call_static(&method_result, SystemDictionary::HotSpotConstantPool_klass(), vmSymbols::fromMetaspace_name(), vmSymbols::constantPool_fromMetaspace_signature(), &args, CHECK_NULL);
   return JNIHandles::make_local(THREAD, (oop)method_result.get_jobject());
 }
