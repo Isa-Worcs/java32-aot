@@ -307,7 +307,7 @@ public class HotSpotMetaAccessProvider implements MetaAccessProvider {
     public int computeArrayAllocationSize(int length, int headerSize, int log2ElementSize) {
         HotSpotVMConfig config = runtime.getConfig();
         //int alignment = config.objectAlignment;
-        int alignment = 4;
+        int alignment = 8;
         int size = (length << log2ElementSize) + headerSize + (alignment - 1);
         int mask = ~(alignment - 1);
         return size & mask;
