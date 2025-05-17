@@ -1065,7 +1065,7 @@ public:
            nonstatic_oop_map_size +
            (is_interface ? (int)sizeof(Klass*)/wordSize : 0) +
            (is_anonymous ? (int)sizeof(Klass*)/wordSize : 0) +
-           (has_stored_fingerprint ? (int)sizeof(uint64_t*)/wordSize : 0));
+           (has_stored_fingerprint ? (int)2*(sizeof(uint64_t*)/wordSize) : 0));
   }
   int size() const                    { return size(vtable_length(),
                                                itable_length(),
